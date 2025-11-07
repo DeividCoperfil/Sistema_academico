@@ -19,3 +19,8 @@ sistema_academico/
 ├── main.py → punto de entrada del programa
 ├── .gitignore → exclusión de archivos innecesarios
 └── README.md → documentación del proyecto
+
+# Integrantes 
+David Trejos
+Diego Polo
+Samuel Riaño
