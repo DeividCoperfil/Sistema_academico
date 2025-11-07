@@ -1,0 +1,21 @@
+# Archivos y carpetas generadas automáticamente por Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Configuración local de entornos o IDE
+.vscode/
+.idea/
+.env
+
+# Archivos temporales o logs
+*.log
+*.tmp
+
+# Archivos CSV (persistencia de datos)
+utils/csvs/*.csv
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
