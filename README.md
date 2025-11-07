@@ -21,6 +21,6 @@ sistema_academico/
 └── README.md → documentación del proyecto
 
 # Integrantes 
-David Trejos
-Diego Polo
-Samuel Riaño
+David Trejos -
+Diego Polo - 
+Samuel Riaño -
