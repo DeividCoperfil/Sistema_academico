@@ -43,7 +43,7 @@ while True:
         continue
 
     # Validación: rango correcto
-    if opcion < 1 or opcion > 8:
+    if opcion < 1 or opcion > 9:
         print("\n Opción fuera de rango. Intente nuevamente.")
         continue
 
@@ -90,52 +90,179 @@ while True:
 
         print("\nBienvenido al sistema de biblioteca")
 
-        # Verifica si hay estudiantes o docentes
-        if not estudiante1.obtener_estudiantes():
-                print("\nPrimero debes agregar un estudiante.\n")
-        
-        
-        else:
-            accion = input("\n¿Que accion deseas hacer?, presiona\n1. Mostrar lista de libros\n2. Prestar libro\n3. Mostrar libros prestados\n4. Devolver un libro\nSelecciona una opcion: ")
+        while True:
+            pregunta = input("\nPresiona\n1. Estudiante\n2. Profesor\n3. Salir: ")
+
+            if pregunta == "":
+                print("\nDebes ingresar una opción.")
+                continue
+
             try:
-                accion = int(accion)
+                pregunta = int(pregunta)
             except ValueError:
-                print("\nPor favor ingrese un número válido.")
-
-            if accion == 1:
-
-                Libros1.mostrar_libros()
+                print("")
+                print("-"*40)
+                print("Ingrese un número válido.")
+                print("-"*40)
+                continue
             
-            elif accion == 2:
-                print("\nPrestamos")
-                id_solicitado = input("\nIngrese su Id: ")
-                nombre_libro = input("\nIngrese el nombre del libro que desea adquirir: ")
+            if pregunta < 1 or pregunta > 3:
+                print("")
+                print("-"*40)
+                print("Opción no disponible. Intente nuevamente.")
+                print("-"*40)
+                continue
 
-                tilin= estudiante1.buscar_estudiante(id_solicitado)
+            if pregunta == 1:
                 
-                if tilin:
+                if not estudiante1.obtener_estudiantes():
+                    print("\nNo hay estudiantes")
+                
+                else:
+                    while True:
+                        comando = input("\nElige una opcion\n1. Mostrar libros\n2. Solicitar un libro\n3. Devolver un libro\n4. Mostrar libros prestados\n5. Salir: ")
 
-                    Libros1.prestar_libros(tilin,nombre_libro)
+                        if comando == "":
+                            print("\nDebes ingresar una opción.")
+                            continue
 
+                        try:
+                            comando = int(comando)
+                        except ValueError:
+                            print("")
+                            print("-"*40)
+                            print("Ingrese un número válido.")
+                            print("-"*40)
+                            continue
+            
+                        if comando < 1 or comando > 5:
+                            print("")
+                            print("-"*40)
+                            print("Opción no disponible. Intente nuevamente.")
+                            print("-"*40)
+                            continue
+
+                        if comando == 1:
+
+                            Libros1.mostrar_libros()
+
+                        elif comando == 2:
+
+                            print("\nPrestamo de libros")
+                            
+                            id_estudiante = input("\nIngrese el id del estudiante: ")
+                            while not id_estudiante:
+                                id_estudiante = input("\nDebe ingresar el id del estudiante: ")
+
+                            libro_solicitado = input("\nIngrese el libro que desea adquirir: ")
+                            while not libro_solicitado: 
+                                libro_solicitado = input("\nDebe ingresar un libro: ")
+
+                            encontrar_estudiante = estudiante1.buscar_estudiante(id_estudiante)
+                            Libros1.prestar_libros(encontrar_estudiante,libro_solicitado)
+
+                        elif comando == 3:
+
+                            print("\nDevolucion de libros")
+                            
+                            id_estudiante = input("\nIngrese el id del estudiante: ")
+                            while not id_estudiante:
+                                id_estudiante = input("\nDebe ingresar el id del estudiante: ")
+
+                            libro_solicitado = input("\nIngrese el libro que desea adquirir: ")
+                            while not libro_solicitado: 
+                                libro_solicitado = input("\nDebe ingresar un libro: ")
+                            
+                            encontrar_estudiante = estudiante1.buscar_estudiante(id_estudiante)
+                            Libros1.devolver_libros(encontrar_estudiante,libro_solicitado)
+
+                        elif comando == 4:
+
+                            Libros1.mostrar_prestamos()
+
+                        elif comando == 5:
+                            print("\nSaliendo")
+                            break
+
+
+                        
+
+            elif pregunta == 2:
+
+                if not docente1.obtener_docentes():
+                    print("\nNo hay docentes")
 
                 else:
+                    while True:
+                        comando = input("\nElige una opcion\n1. Mostrar libros\n2. Solicitar un libro\n3. Devolver un libro\n4. Mostrar libros prestados\n5. Salir: ")
 
-                    print("\nNo se encontro estudiante con ese id")
+                        if comando == "":
+                            print("\nDebes ingresar una opción.")
+                            continue
 
-            elif accion == 3:
+                        try:
+                            comando = int(comando)
+                        except ValueError:
+                            print("")
+                            print("-"*40)
+                            print("Ingrese un número válido.")
+                            print("-"*40)
+                            continue
+            
+                        if comando < 1 or comando > 5:
+                            print("")
+                            print("-"*40)
+                            print("Opción no disponible. Intente nuevamente.")
+                            print("-"*40)
+                            continue
 
-                Libros1.mostrar_prestamos()
+                        if comando == 1:
 
-            elif accion == 4:
+                            Libros1.mostrar_libros()
 
-                print("\nDevolucion de libros")
-                id_solicitado = input("\nIngrese su Id: ")
-                nombre_libro = input("\nIngrese el nombre del libro que desea devolver: ")
-                Libros1.devolver_libros(tilin,nombre_libro)
-            else:
-                print("Opcion no valida")     
+                        elif comando == 2:
+
+                            print("\nPrestamo de libros")
+                            
+                            id_docente = input("\nIngrese el id del docente: ")
+                            while not id_docente:
+                                id_docente = input("\nDebe ingresar el id del docente: ")
+
+                            libro_solicitado = input("\nIngrese el libro que desea adquirir: ")
+                            while not libro_solicitado: 
+                                libro_solicitado = input("\nDebe ingresar un libro: ")
+
+                            encontar_docente = docente1.buscar_docente(id_docente)
+                            Libros1.prestar_libros(encontar_docente,libro_solicitado)
+
+                        elif comando == 3:
+
+                            print("\nDevolucion de libros")
+                            
+                            id_docente = input("\nIngrese el id del docente: ")
+                            while not id_docente:
+                                id_docente = input("\nDebe ingresar el id del docente: ")
+
+                            libro_solicitado = input("\nIngrese el libro que desea devolver: ")
+                            while not libro_solicitado: 
+                                libro_solicitado = input("\nDebe ingresar un libro: ")
+
+                            encontar_docente = docente1.buscar_docente(id_docente)
+                            Libros1.devolver_libros(encontar_docente,libro_solicitado)
+
+                        elif comando == 4:
+
+                            Libros1.mostrar_prestamos()
+
+                        elif comando == 5:
+                            print("\nSaliendo")
+                            break
+
+            elif pregunta == 3:
+                print("\nSalir de biblioteca")
+                break
+
+             
     elif opcion == 9:
         print("\n Saliendo del programa...")
         break
-
-print("Prueba de commit")

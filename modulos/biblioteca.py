@@ -50,4 +50,5 @@ class Biblioteca:
                         break
                 self.prestamos.remove(x)
                 print(f"{nombre_libro} devuelto por {persona[1]}")
+                return
         print(f"No se encontró un prestamo activo del libro {nombre_libro} para {persona[1]}")
