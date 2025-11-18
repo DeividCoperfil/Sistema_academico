@@ -159,7 +159,12 @@ while True:
                                 libro_solicitado = input("\nDebe ingresar un libro: ")
 
                             encontrar_estudiante = estudiante1.buscar_estudiante(id_estudiante)
-                            Libros1.prestar_libros(encontrar_estudiante,libro_solicitado)
+
+                            if not encontrar_estudiante:
+                                print("\nEstudiante no encontrado")
+                                continue
+                            else:
+                                Libros1.prestar_libros(encontrar_estudiante,libro_solicitado)
 
                         elif comando == 3:
 
@@ -169,12 +174,18 @@ while True:
                             while not id_estudiante:
                                 id_estudiante = input("\nDebe ingresar el id del estudiante: ")
 
-                            libro_solicitado = input("\nIngrese el libro que desea adquirir: ")
+                            libro_solicitado = input("\nIngrese el libro que desea devolver: ")
                             while not libro_solicitado: 
                                 libro_solicitado = input("\nDebe ingresar un libro: ")
                             
+
                             encontrar_estudiante = estudiante1.buscar_estudiante(id_estudiante)
-                            Libros1.devolver_libros(encontrar_estudiante,libro_solicitado)
+
+                            if not encontrar_estudiante:
+                                print("\nEstudiante no encontrado")
+                                continue
+                            else:
+                                Libros1.devolver_libros(encontrar_estudiante,libro_solicitado)
 
                         elif comando == 4:
 
@@ -233,7 +244,12 @@ while True:
                                 libro_solicitado = input("\nDebe ingresar un libro: ")
 
                             encontar_docente = docente1.buscar_docente(id_docente)
-                            Libros1.prestar_libros(encontar_docente,libro_solicitado)
+
+                            if not encontar_docente:
+                                print("\nDocente no encontrado")
+                                continue
+                            else:
+                                Libros1.prestar_libros(encontar_docente,libro_solicitado)
 
                         elif comando == 3:
 
@@ -248,7 +264,12 @@ while True:
                                 libro_solicitado = input("\nDebe ingresar un libro: ")
 
                             encontar_docente = docente1.buscar_docente(id_docente)
-                            Libros1.devolver_libros(encontar_docente,libro_solicitado)
+
+                            if not encontar_docente:
+                                print("\nDocente no encontrado")
+                                continue
+                            else:
+                                Libros1.devolver_libros(encontar_docente,libro_solicitado)
 
                         elif comando == 4:
 
