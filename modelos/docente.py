@@ -29,3 +29,9 @@ class Docente(Persona):
 
     def obtener_docentes(self):
         return self.registro
+
+    def buscar_docente(self, id_buscar):
+        for estudiante in self.registro:
+            if estudiante[0] == id_buscar:
+                return estudiante
+        return None
