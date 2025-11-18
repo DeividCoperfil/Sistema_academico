@@ -27,7 +27,6 @@ while True:
     print("7. Añadir asistencia a materia")
     print("8. Acceder a biblioteca")
     print("9. Salir")
-    print("10. modificar datos estudiante")
 
     opcion = input("Seleccione una opción: ")
 
