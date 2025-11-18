@@ -176,9 +176,3 @@ class Docente(Persona):
         #Imprimir los datos de cada estudiante
         for i in self.registro:
             print(f"ID: {i[0]} Nombre: {i[1]} Telefono: {i[2]} Correo: {i[3]} direccion: {i[4]}")
-
-    #Metodo para eliminar un registro de la lista de docentes
-    def eliminar_docentes(self):
-        if not self.registro: #Si no hay nada en la lista de docentes, se muestra lo siguiente:
-            print("\nNo hay registros de estudiantes aun, debes agregar uno primero")
-            return
