@@ -18,8 +18,8 @@ Libros1 = Biblioteca()
 # (AQUÍ VA TODO TU CÓDIGO EXACTO DEL MENÚ, SIN CAMBIOS)
 while True:
     print("\n--- MENÚ ---")
-    print("1. Agregar estudiante")
-    print("2. Agregar docente")
+    print("1. Acceder a estudiantes")
+    print("2. Acceder a docentes")
     print("3. Inscribir materia (docente)")
     print("4. Inscribir estudiante en materia")
     print("5. Agregar actividad")
@@ -27,6 +27,7 @@ while True:
     print("7. Añadir asistencia a materia")
     print("8. Acceder a biblioteca")
     print("9. Salir")
+    print("10. modificar datos estudiante")
 
     opcion = input("Seleccione una opción: ")
 
@@ -49,10 +50,107 @@ while True:
 
     # --- Ejecución de opciones ---
     if opcion == 1:
-        estudiante1.agregar_estudiante()
+
+        while True:
+
+            print("\nBienvenido al sistema de estudiantes")
+            print("\nPresiona: \n1. Agregar estudiante\n2. modificar estudiante\n3. Eliminar estudiante\n4. Mostrar estudiantes\n5. Salir")
+            opcionn = input("\nIngresa una opcion: ")
+            #verifica que la variable no este vacia
+            if opcionn == "":
+                print("\nDebes ingresar una opción.")
+                continue
+
+            #Verifica que la variable sea un numero y lo convierte a entero
+            try:
+                opcionn = int(opcionn)
+            except ValueError:
+                print("")
+                print("-"*40)
+                print("Ingrese un número válido.")
+                print("-"*40)
+                continue
+
+            #Verifica que la variable este dentro del rango de posibles opciones
+            if opcionn < 1 or opcionn > 5:
+                print("")
+                print("-"*40)
+                print("Opción no disponible. Intente nuevamente.")
+                print("-"*40)
+                continue
+
+            if opcionn == 1:
+
+                estudiante1.agregar_estudiante()
+
+            elif opcionn == 2:
+
+                estudiante1.modificar_datos_estudiante()
+
+            elif opcionn == 3:
+
+                estudiante1.eliminar_estudiantes()
+
+            elif opcionn == 4:
+
+                estudiante1.mostrar_estudiantes()
+
+            elif opcionn == 5:
+
+                print("\nSaliendo del area de estudiantes....")
+                break
 
     elif opcion == 2:
-        docente1.agregar_docente()
+
+        while True:
+
+            print("\nBienvenido al area de docentes")
+            print("\nPresiona: \n1. Agregar docente\n2. modificar docente\n3. Eliminar docente\n4. Mostrar docente\n5. Salir")
+            opcionn = input("\nIngresa una opcion: ")
+
+            #verifica que la variable no este vacia
+            if opcionn == "":
+                print("\nDebes ingresar una opción.")
+                continue
+
+            #Verifica que la variable sea un numero y lo convierte a entero
+            try:
+                opcionn = int(opcionn)
+            except ValueError:
+                print("")
+                print("-"*40)
+                print("Ingrese un número válido.")
+                print("-"*40)
+                continue
+
+            #Verifica que la variable este dentro del rango de posibles opciones
+            if opcionn < 1 or opcionn > 5:
+                print("")
+                print("-"*40)
+                print("Opción no disponible. Intente nuevamente.")
+                print("-"*40)
+                continue
+
+            if opcionn == 1:
+
+                docente1.agregar_docente()
+
+            elif opcionn == 2:
+
+                docente1.modificar_datos_docente()
+
+            elif opcionn == 3:
+
+                docente1.eliminar_docentes()
+
+            elif opcionn == 4:
+
+                docente1.mostrar_docentes()
+
+            elif opcionn == 5:
+
+                print("\nSaliendo del area de estudiantes....")
+                break
 
     elif opcion == 3:
         # Verifica si hay docentes antes de asignar materias
